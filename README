@@ -1,0 +1,26 @@
+git clone https://github.com/letiantian/Pinyin2Hanzi.git
+近期项目需要拼音转汉字功能，网上没有找到go语言版的，仿照python版实现一个
+目标: 只实现了Viterbi算法，先保证基本能用
+
+
+##Install
+go get ***
+
+
+##Train
+使用项目的日志数据（问答机器人）
+
+##Example
+
+package main
+import(
+    "github.com/go-sql-driver/mysql"
+)
+
+hmmparams := &HmmParams{}
+hmmparams.Init("./data")
+
+scoreList,pathList := Viterbi(hmmparams, "ni zhi bu zhi dao",2,false,3.14e-200)
+
+fmt.Println(scoreList)
+fmt.Println(pathList)
