@@ -56,22 +56,6 @@ func (q *PriorityQueue) Pop() Interface {
 	return heap.Pop(q.s).(Interface)
 }
 
-func (q *PriorityQueue) Top() Interface {
-	if len(*q.s) > 0 {
-		return (*q.s)[0].(Interface)
-	}
-	return nil
-}
-
-func (q *PriorityQueue) Fix(x Interface, i int) {
-	(*q.s)[i] = x
-	heap.Fix(q.s, i)
-}
-
-func (q *PriorityQueue) Remove(i int) Interface {
-	return heap.Remove(q.s, i).(Interface)
-}
-
 func (q *PriorityQueue) Len() int {
 	return q.s.Len()
 }
